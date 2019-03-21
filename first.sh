@@ -1,3 +1,6 @@
 #!/usr/bin/bash
 
-7z a ~/deploy.7z ~/.fonts/ ~/Pictures/ ~/.emacs/elpa/
+for filepath in ~/.fonts/ ~/Pictures/ ~/.emacs/elpa/ ~/.newsboat/cache.db
+do
+  [ -d "$filepath" ] && 7z a ~/static-$(date +%Y%m%d).7z "$filepath"
+done
